@@ -1,0 +1,11 @@
+const date = new Date();
+const year = date.getFullYear();
+const month = date.getMonth() < 10 ? `0${date.getMonth() + 1}` : date.getHours() + 1;
+const hour = date.getHours() < 10 ? `0${date.getHours()}` : date.getHours();
+const min = date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes();
+const sec = date.getSeconds() < 10 ? `0${date.getSeconds()}` : date.getSeconds();
+console.log(year);
+console.log(month);
+console.log(hour);
+console.log(min);
+console.log(sec);

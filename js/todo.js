@@ -5,9 +5,8 @@ const toDoForm = document.querySelector(".js-toDoForm"),
 const TODOS_LS = "toDos";
 
 let toDos = [];
-function filterFn(toDo) {
-    return toDo.id === 1
-}
+
+// 버튼 누르면 삭제
 function deleteToDo(event) {
     const btn = event.target;
     const li = btn.parentNode;
@@ -18,9 +17,12 @@ function deleteToDo(event) {
     toDos = cleanToDos;
     saveTODos();
 }
+// LocalStorage 에 JSON 타입으로 저장
 function saveTODos() {
     localStorage.setItem(TODOS_LS, JSON.stringify(toDos)); // JSON -> String 타입으로 변경
 }
+
+// HTML 에 li, span, Btn 삽입
 function paintToDo(text) {
     const li = document.createElement("li"); // li 생성
     const delBtn = document.createElement("button"); // 버튼 생성
@@ -42,12 +44,15 @@ function paintToDo(text) {
     toDos.push(toDoObj);
     saveTODos();
 }
+
+// input 태그에 엔터쳤을때 실행
 function handleSubmit(event){
     event.preventDefault();
     const currentValue = toDoInput.value;
     paintToDo(currentValue);
 }
 
+// 새로고침 시 불러오기
 function loadToDos() {
     const toDos = localStorage.getItem(TODOS_LS);
     if (toDos !== null) {
@@ -62,9 +67,10 @@ function loadToDos() {
             }
     }
 }
+
+// 시작
 function init() {
     loadToDos();
-
     toDoForm.addEventListener("submit", handleSubmit); // toDoForm Submit(엔터) 하면 handleSubmit 실행
 }
 

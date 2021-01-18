@@ -7,7 +7,8 @@ h1 {
 }
 
 .form,
-.greetings {
+.greetings,
+.sr {
     display: none;
 }
 
